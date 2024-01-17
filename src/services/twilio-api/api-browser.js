@@ -5,15 +5,12 @@ const { camelCase } = require('../naming-conventions');
 let apiSpec; // Lazy-loaded below.
 
 const OPERATIONS = ['post', 'get', 'delete'];
-const { logger, LoggingLevel } = require('../messaging/logging');
 
 class TwilioApiBrowser {
   constructor(spec) {
     spec = spec || this.loadApiSpecFromDisk();
     spec = this.mergeVersions(spec);
     this.domains = this.loadDomains(spec);
-    this.logger = logger;
-
   }
 
   mergeVersions(spec) {
@@ -74,7 +71,8 @@ class TwilioApiBrowser {
 
     Object.values(domains).forEach((spec) => {
       Object.values(spec.paths).forEach((path) => {
-        //this.logger.info(`========================== Display path ==================: ${path}`);
+        console.log("=========================== Display path ===========================");
+        console.log(path.description);
         if (path === '/healthcheck') return;
         // Naive assumption: The Twilio APIs only have a single server.
         path.server = path.servers[0].url;
