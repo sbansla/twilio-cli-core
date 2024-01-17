@@ -117,7 +117,7 @@ describe('base-commands', () => {
 
       baseCommandTest.it('use the main repo when no url is found', (ctx) => {
         expect(ctx.testCmd.getIssueUrl({ pjson: { anything: 'nothing' } })).to.equal(
-          'https://github.com/twilio/twilio-cli/issues',
+          'https://github.com/sbansla/twilio-cli/issues',
         );
       });
     });
