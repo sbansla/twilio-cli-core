@@ -5,7 +5,7 @@ const { camelCase } = require('../naming-conventions');
 let apiSpec; // Lazy-loaded below.
 
 const OPERATIONS = ['post', 'get', 'delete'];
-const { logger, LoggingLevel } = require('../services/messaging/logging');
+const { logger, LoggingLevel } = require('../messaging/logging');
 
 class TwilioApiBrowser {
   constructor(spec) {
